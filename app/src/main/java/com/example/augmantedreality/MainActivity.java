@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                // text.setTextColor( Color.parseColor("FCF8F8"));
                 /*Here you can do anything with above textview like text.setTextColor(Color.parseColor("#000000"));*/
                 //toast.show();
-                startActivity(new Intent(MainActivity.this, LogInActivity.class));
+                startActivity(new Intent(MainActivity.this,BasementActivity.class));
             }
         });
         signUp.setOnClickListener(new View.OnClickListener() {
