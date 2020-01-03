@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#271F1F"
+    tools:context=".Transition">
+
+    <Button
+        android:id="@+id/transitionARButton"
+        android:layout_width="160dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="126dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginBottom="556dp"
+        android:background="#4CB49E"
+        android:text="Go to AR"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.611"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/transitionShowModelButton"
+        android:layout_width="160dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="126dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="125dp"
+        android:background="#4CB49E"
+        android:text="Show Models"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transitionARButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@ public class PerfomanceViewModel extends ViewModel {
 
     public PerfomanceViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is tools fragment");
+        mText.setValue("This is perfomance fragment");
     }
 
     public LiveData<String> getText() {

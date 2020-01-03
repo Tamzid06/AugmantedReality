@@ -10,7 +10,7 @@ public class CreditViewModel extends ViewModel {
 
     public CreditViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is share fragment");
+        mText.setValue("This is Credit fragment");
     }
 
     public LiveData<String> getText() {

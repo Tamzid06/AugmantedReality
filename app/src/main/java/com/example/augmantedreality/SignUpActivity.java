@@ -12,14 +12,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.augmantedreality.ui.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    EditText emailId,password,name;
+    EditText emailId,password,name,phoneNo,birthDate;
     Button signUp;
     TextView logIn;
     FirebaseAuth mFirebaseAuth;
@@ -33,21 +36,30 @@ public class SignUpActivity extends AppCompatActivity {
         name = findViewById(R.id.signUpName);
         emailId = findViewById(R.id.signUpEmail);
         password = findViewById(R.id.signUpPassword);
+        phoneNo = findViewById(R.id.signUpPhone);
+        birthDate = findViewById(R.id.signUpDate);
         signUp = findViewById(R.id.signUpSignUp);
         logIn = findViewById(R.id.signUpLogIn);
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = emailId.getText().toString();
-                String pass = password.getText().toString();
+                final String email = emailId.getText().toString();
+                final String pass = password.getText().toString();
+                final String username =  name.getText().toString();
+                final String phone = phoneNo.getText().toString();
+                final String birthDay = birthDate.getText().toString();
 
-                if(everythigIsValid(email,pass)) // This function has been created manually to check whether the email and passwords are valid or not.
+                if(everythigIsValid(email,pass,username,phone,birthDay)|| true) // This function has been created manually to check whether the email and passwords are valid or not.
                 {
                     mFirebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful())
+                            if(task.isSuccessful() )
                             {
+                                DatabaseReference root = FirebaseDatabase.getInstance().getReference("Store");
+                                String id = root.push().getKey(); // Created an ID;
+                                User newAccount = new User(username,email, pass,phone,birthDay,id);
+                                root.child(id).setValue(newAccount);
                                 Toast.makeText(SignUpActivity.this, "Please Log In!", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(SignUpActivity.this,LogInActivity.class));
                                 finish();
@@ -70,16 +82,17 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    private boolean everythigIsValid(String email, String pass)
+    private boolean everythigIsValid(String email, String pass,String username,String phone,String birthDay)
     {
-        if(email.isEmpty() && pass.isEmpty())
+
+        if(email.isEmpty() && pass.isEmpty() && username.isEmpty() && phone.isEmpty() && birthDay.isEmpty())
         {
             Toast.makeText(SignUpActivity.this, "Fields are empty", Toast.LENGTH_SHORT).show();
             return false;
         }
         else if(email.isEmpty())
         {
-            emailId.setError("Please enter Email ID");
+            emailId.setError("Please enter Email ID!");
             emailId.requestFocus();
             return false;
         }
@@ -87,6 +100,24 @@ public class SignUpActivity extends AppCompatActivity {
         {
             password.setError("Please enter your password!");
             password.requestFocus();
+            return false;
+        }
+        else if(username.isEmpty())
+        {
+            name.setError("Please enter your name!");
+            name.requestFocus();
+            return false;
+        }
+        else if(phone.isEmpty())
+        {
+            phoneNo.setError("Please enter your Phone Number!");
+            phoneNo.requestFocus();
+            return false;
+        }
+        else if(birthDay.isEmpty())
+        {
+            birthDate.setError("Please enter your BirthDay");
+            birthDate.requestFocus();
             return false;
         }
         else

@@ -19,6 +19,7 @@ import com.example.augmantedreality.LogInActivity;
 import com.example.augmantedreality.MainActivity;
 import com.example.augmantedreality.R;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LogOutFragment extends Fragment {
 
@@ -34,7 +35,10 @@ public class LogOutFragment extends Fragment {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
-
+                startActivity(new Intent(getActivity(),MainActivity.class));
+                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(getActivity(), "You have logged out!", Toast.LENGTH_SHORT).show();
+                getActivity().finish();
                 //startActivity(new Intent(BasementActivity.this, MainActivity.class));
             }
         });

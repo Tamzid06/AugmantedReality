@@ -32,6 +32,13 @@ public class LogInActivity extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
         signUp = findViewById(R.id.logInSignUp);
         logInbtn = findViewById(R.id.logInLogIn);
+
+
+        if(mFirebaseAuth.getCurrentUser()== null)
+        {
+            mFirebaseAuth.signOut();
+        }
+
         logInbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
