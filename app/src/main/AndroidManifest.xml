@@ -9,12 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
-        <activity android:name=".Transition"></activity>
+        <activity android:name=".Quiz1"></activity>
+        <activity android:name=".Transition" />
         <activity
             android:name=".BasementActivity"
             android:label="@string/title_activity_basement"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".HomePageActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LogInActivity" />
         <activity android:name=".MainActivity">

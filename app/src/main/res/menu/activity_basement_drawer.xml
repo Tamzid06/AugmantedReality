@@ -24,8 +24,8 @@
         <menu>
             <item
                 android:id="@+id/nav_credits"
-                android:icon="@drawable/credit_icon"
-                android:title="Credits" />
+                android:icon="@drawable/ic_info_outline_black_24dp"
+                android:title="About" />
             <item
                 android:id="@+id/nav_logOut"
                 android:icon="@drawable/log_out_icon"
