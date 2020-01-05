@@ -58,7 +58,7 @@ public class Transition extends AppCompatActivity {
         showModelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(Transition.this,ShowModelActivity.class));
+                startActivity(new Intent(Transition.this,ShowModelActivity.class));
             }
         });
     }
