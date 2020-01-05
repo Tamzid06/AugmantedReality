@@ -60,8 +60,15 @@
 
 
             <ImageView
-                android:id = "@+id/id_maleLow"
-                android:src="@drawable/skeleton"
+                android:id = "@+id/id_brain"
+                android:src="@drawable/brain"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id = "@+id/id_teeth"
+                android:src="@drawable/teeth"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_weight="1" />

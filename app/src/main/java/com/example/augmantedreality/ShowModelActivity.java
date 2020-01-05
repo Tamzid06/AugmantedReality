@@ -28,9 +28,11 @@ public class ShowModelActivity extends AppCompatActivity implements View.OnClick
                             ribCageRenderable,
                             maleLowRenderable,
                             hepatitisLiverRenderable,
-                            femurRenderable;
+                            femurRenderable,
+                            teethRenderable,
+                            brainRenderable;
 
-    ImageView skullImage,skeletonImage,maleLawImage,ribCageImage,femurImage,hepatitisLiverImage;
+    ImageView skullImage,skeletonImage,maleLawImage,ribCageImage,femurImage,hepatitisLiverImage,teethImage,brainImage;
 
     View arrayView[];
     ViewRenderable name_animal;
@@ -47,9 +49,12 @@ public class ShowModelActivity extends AppCompatActivity implements View.OnClick
         skullImage      = findViewById(R.id.id_skull);
         skeletonImage   = findViewById(R.id.id_skeleton);
         ribCageImage    = findViewById(R.id.id_ribcage);
-        maleLawImage    = findViewById((R.id.id_maleLow));
+        //maleLawImage    = findViewById((R.id.id_maleLow));
         femurImage      = findViewById(R.id.id_femur);
         hepatitisLiverImage = findViewById(R.id.id_hepatitisLiver);
+        brainImage = findViewById(R.id.id_brain);
+        teethImage = findViewById(R.id.id_teeth);
+
 
         setArrayView();
         setClickListener();
@@ -99,25 +104,25 @@ public class ShowModelActivity extends AppCompatActivity implements View.OnClick
                         }
                 );
 
-//        ModelRenderable.builder()
-//                .setSource(this,R.raw.malelow)
-//                .build().thenAccept(renderable -> maleLowRenderable = renderable)
-//                .exceptionally(
-//                        throwable -> {
-//                            Toast.makeText(this,"Unable to load model",Toast.LENGTH_SHORT).show();
-//                            return null;
-//                        }
-//                );
-//
-//        ModelRenderable.builder()
-//                .setSource(this,R.raw.ribcage)
-//                .build().thenAccept(renderable -> ribCageRenderable = renderable)
-//                .exceptionally(
-//                        throwable -> {
-//                            Toast.makeText(this,"Unable to load model",Toast.LENGTH_SHORT).show();
-//                            return null;
-//                        }
-//                );
+        ModelRenderable.builder()
+                .setSource(this,R.raw.brain_model)
+                .build().thenAccept(renderable -> brainRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast.makeText(this,"Unable to load model",Toast.LENGTH_SHORT).show();
+                            return null;
+                        }
+                );
+
+        ModelRenderable.builder()
+                .setSource(this,R.raw.teeth)
+                .build().thenAccept(renderable -> teethRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast.makeText(this,"Unable to load model",Toast.LENGTH_SHORT).show();
+                            return null;
+                        }
+                );
 //
 //        ModelRenderable.builder()
 //                .setSource(this,R.raw.hepatitisliver)
@@ -146,18 +151,34 @@ public class ShowModelActivity extends AppCompatActivity implements View.OnClick
         }
         else if(selected == 2)
         {
-            transformableNode.getScaleController().setMaxScale(.3f);
+            transformableNode.getScaleController().setMaxScale(.2f);
             transformableNode.getScaleController().setMinScale(.05f);
             transformableNode.setParent(anchorNode);
             transformableNode.setRenderable(skeletonRenderable);
             transformableNode.select();
         }
-        if(selected == 3)
+        else if(selected == 3)
+        {
+            transformableNode.getScaleController().setMaxScale(.2f);
+            transformableNode.getScaleController().setMinScale(.05f);
+            transformableNode.setParent(anchorNode);
+            transformableNode.setRenderable(femurRenderable);
+            transformableNode.select();
+        }
+        else if(selected == 4)
         {
             transformableNode.getScaleController().setMaxScale(.3f);
             transformableNode.getScaleController().setMinScale(.1f);
             transformableNode.setParent(anchorNode);
-            transformableNode.setRenderable(femurRenderable);
+            transformableNode.setRenderable(brainRenderable);
+            transformableNode.select();
+        }
+        else if(selected == 5)
+        {
+            transformableNode.getScaleController().setMaxScale(2f);
+            transformableNode.getScaleController().setMinScale(.51f);
+            transformableNode.setParent(anchorNode);
+            transformableNode.setRenderable(teethRenderable);
             transformableNode.select();
         }
     }
@@ -170,7 +191,7 @@ public class ShowModelActivity extends AppCompatActivity implements View.OnClick
     private void setArrayView() {
 
         arrayView = new View[]{
-                skullImage,skeletonImage,maleLawImage,ribCageImage,femurImage,hepatitisLiverImage
+                skullImage,skeletonImage,femurImage,brainImage,teethImage,ribCageImage,hepatitisLiverImage
         };
     }
 
@@ -189,6 +210,16 @@ public class ShowModelActivity extends AppCompatActivity implements View.OnClick
         else if(view.getId() == R.id.id_femur)
         {
             selected = 3;
+            setBackground(view.getId());
+        }
+        else if(view.getId() == R.id.id_brain)
+        {
+            selected = 4;
+            setBackground(view.getId());
+        }
+        else if(view.getId() == R.id.id_teeth)
+        {
+            selected = 5;
             setBackground(view.getId());
         }
     }

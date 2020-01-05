@@ -66,3 +66,12 @@ sceneform.asset('sampledata/models/skull.obj',
         'sampledata/models/skull.sfa',
         'src/main/assets/skull')
 
+sceneform.asset('sampledata/models/brain_model.fbx',
+        'default',
+        'sampledata/models/brain_model.sfa',
+        'src/main/res/raw/brain_model')
+
+sceneform.asset('sampledata/models/teeth.obj',
+        'default',
+        'sampledata/models/teeth.sfa',
+        'src/main/res/raw/teeth')
