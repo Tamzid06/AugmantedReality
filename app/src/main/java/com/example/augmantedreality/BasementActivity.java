@@ -1,13 +1,18 @@
 package com.example.augmantedreality;
 
 import android.content.ClipData;
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.augmantedreality.ui.User;
+import com.example.augmantedreality.ui.performance.PerfomanceFragment;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -18,8 +23,10 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -29,19 +36,49 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class BasementActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ClipData.Item logOut;
+
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference myRef;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private String userID;
+
+    public static ArrayList<BarEntry> barEntries = new ArrayList<>();
+    public static User tmpUser;
+    public static BarChart barChart;
+    public static BarDataSet barDataSet;
+    public static ArrayList<String> theDates;
+    public static BarData theData;
+    ImageView avatar;
+    TextView nav_username;
+    TextView nav_email;
+    FirebaseUser user;
+    User userData;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basement);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+
+        user = mAuth.getCurrentUser();
+        assert user != null;
+        userID = (String) user.getUid();
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +94,33 @@ public class BasementActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 
+        View header = navigationView.getHeaderView(0);
+
+        avatar = header.findViewById(R.id.nav_avatar);
+        nav_username = header.findViewById(R.id.nav_username);
+        nav_email = header.findViewById(R.id.nav_email);
+
+        mFirebaseDatabase.getReference().child("Store").child(userID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                userData = dataSnapshot.getValue(User.class);
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        nav_username.setText(userData.getUsername());
+                        nav_email.setText(userData.getEmail());
+                    }
+                });
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_profile,
                 R.id.nav_perfomance, R.id.nav_credits, R.id.nav_logOut)
@@ -66,6 +130,45 @@ public class BasementActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        graph();
+    }
+
+    private void graph() {
+        myRef = mFirebaseDatabase.getReference().child("Store").child(userID);
+
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                User account;
+
+                account = dataSnapshot.getValue(User.class);
+                tmpUser = account;
+
+                barEntries = new ArrayList<>();
+                barEntries.add(new BarEntry(account.getChap1(), 0));
+                barEntries.add(new BarEntry(account.getChap2(), 1));
+                barEntries.add(new BarEntry(account.getChap3(), 2));
+                barEntries.add(new BarEntry(account.getChap4(), 3));
+                barEntries.add(new BarEntry(account.getChap5(), 4));
+
+                theDates = new ArrayList<>();
+                theDates.add("April");
+                theDates.add("May");
+                theDates.add("June");
+                theDates.add("July");
+                theDates.add("August");
+
+                barDataSet = new BarDataSet(barEntries, "Chapters");
+                PerfomanceFragment.theData = new BarData(theDates, barDataSet);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override

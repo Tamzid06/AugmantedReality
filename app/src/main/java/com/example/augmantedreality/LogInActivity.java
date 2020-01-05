@@ -34,7 +34,7 @@ public class LogInActivity extends AppCompatActivity {
         logInbtn = findViewById(R.id.logInLogIn);
 
 
-        if(mFirebaseAuth.getCurrentUser()== null)
+        if(mFirebaseAuth.getCurrentUser()!= null)
         {
             mFirebaseAuth.signOut();
         }

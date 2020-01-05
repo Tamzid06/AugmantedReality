@@ -20,6 +20,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Objects;
+
 public class SignUpActivity extends AppCompatActivity {
 
     EditText emailId,password,name,phoneNo,birthDate;
@@ -43,11 +45,11 @@ public class SignUpActivity extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String email = emailId.getText().toString();
-                final String pass = password.getText().toString();
-                final String username =  name.getText().toString();
-                final String phone = phoneNo.getText().toString();
-                final String birthDay = birthDate.getText().toString();
+                final String email = emailId.getText().toString().trim();
+                final String pass = password.getText().toString().trim();
+                final String username =  name.getText().toString().trim();
+                final String phone = phoneNo.getText().toString().trim();
+                final String birthDay = birthDate.getText().toString().trim();
 
                 if(everythigIsValid(email,pass,username,phone,birthDay)) // This function has been created manually to check whether the email and passwords are valid or not.
                 {
@@ -57,7 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
                             if(task.isSuccessful() )
                             {
                                 DatabaseReference root = FirebaseDatabase.getInstance().getReference("Store");
-                                String id = FirebaseAuth.getInstance().getCurrentUser().getUid(); // Created an ID;
+                                String id = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();  // Created an ID;
                                 User newAccount = new User(username,email, pass,phone,birthDay,id);
                                 root.child(id).setValue(newAccount);
                                 Toast.makeText(SignUpActivity.this, "Please Log In!", Toast.LENGTH_SHORT).show();

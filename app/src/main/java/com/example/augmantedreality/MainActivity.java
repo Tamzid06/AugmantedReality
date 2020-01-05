@@ -41,12 +41,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,LogInActivity.class));
+                finish();
             }
         });
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, SignUpActivity.class));
+                finish();
             }
         });
 
