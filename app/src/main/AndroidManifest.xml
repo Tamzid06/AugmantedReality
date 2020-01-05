@@ -17,12 +17,13 @@
         <meta-data android:name="com.google.ar.core" android:value="required" />
 
         <activity android:name=".ShowModelActivity"></activity>
+        <activity android:name=".Quiz1"></activity>
+
         <activity android:name=".Transition" />
         <activity
             android:name=".BasementActivity"
             android:label="@string/title_activity_basement"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".HomePageActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LogInActivity" />
         <activity android:name=".MainActivity">

@@ -47,6 +47,7 @@ dependencies {
     apply plugin: 'com.google.gms.google-services'
 
     implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.6.0'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
 }
 
 

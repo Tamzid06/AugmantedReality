@@ -10,7 +10,7 @@ public class User {
     private String phone; // Initialized by Constructor
     private String birthday; // Initialized by Constructor
     private String id; // Initialized by Constructor
-    private ArrayList<Integer> result ;
+    private int chap1,chap2,chap3,chap4,chap5,chap6;
     private int totalMarks;
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
@@ -28,15 +28,55 @@ public class User {
         this.phone = phone;
         this.birthday = birthday;
         this.id = id;
-        result = new ArrayList<Integer>(15);
+
     }
 
-    public ArrayList<Integer> getResult() {
-        return result;
+    public int getChap1() {
+        return chap1;
     }
 
-    public void setResult(ArrayList<Integer> result) {
-        this.result = result;
+    public void setChap1(int chap1) {
+        this.chap1 = chap1;
+    }
+
+    public int getChap2() {
+        return chap2;
+    }
+
+    public void setChap2(int chap2) {
+        this.chap2 = chap2;
+    }
+
+    public int getChap3() {
+        return chap3;
+    }
+
+    public void setChap3(int chap3) {
+        this.chap3 = chap3;
+    }
+
+    public int getChap4() {
+        return chap4;
+    }
+
+    public void setChap4(int chap4) {
+        this.chap4 = chap4;
+    }
+
+    public int getChap5() {
+        return chap5;
+    }
+
+    public void setChap5(int chap5) {
+        this.chap5 = chap5;
+    }
+
+    public int getChap6() {
+        return chap6;
+    }
+
+    public void setChap6(int chap6) {
+        this.chap6 = chap6;
     }
 
     public String getId() {
@@ -88,6 +128,7 @@ public class User {
     }
 
     public int getTotalMarks() {
+        totalMarks = chap1+chap2+chap3+chap4+chap5+chap6;
         return totalMarks;
     }
 

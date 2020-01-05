@@ -49,7 +49,7 @@ public class SignUpActivity extends AppCompatActivity {
                 final String phone = phoneNo.getText().toString();
                 final String birthDay = birthDate.getText().toString();
 
-                if(everythigIsValid(email,pass,username,phone,birthDay)|| true) // This function has been created manually to check whether the email and passwords are valid or not.
+                if(everythigIsValid(email,pass,username,phone,birthDay)) // This function has been created manually to check whether the email and passwords are valid or not.
                 {
                     mFirebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -57,7 +57,7 @@ public class SignUpActivity extends AppCompatActivity {
                             if(task.isSuccessful() )
                             {
                                 DatabaseReference root = FirebaseDatabase.getInstance().getReference("Store");
-                                String id = root.push().getKey(); // Created an ID;
+                                String id = FirebaseAuth.getInstance().getCurrentUser().getUid(); // Created an ID;
                                 User newAccount = new User(username,email, pass,phone,birthDay,id);
                                 root.child(id).setValue(newAccount);
                                 Toast.makeText(SignUpActivity.this, "Please Log In!", Toast.LENGTH_SHORT).show();
