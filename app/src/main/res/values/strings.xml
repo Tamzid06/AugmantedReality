@@ -21,7 +21,7 @@
     <string name="menu_profile">Profile</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_perfomance">Perfomance</string>
-    <string name="menu_credit">Credit</string>
+    <string name="menu_credit">About</string>
     <string name="menu_send">Send</string>
 
 </resources>

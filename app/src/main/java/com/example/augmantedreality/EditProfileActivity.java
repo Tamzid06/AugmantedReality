@@ -61,9 +61,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-
         user = mAuth.getCurrentUser();
-        assert user != null;
         userID = (String) user.getUid();
 
         cancel =findViewById(R.id.editProfileCancel);

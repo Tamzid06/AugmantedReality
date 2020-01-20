@@ -23,13 +23,8 @@ public class CreditFragment extends Fragment {
         creditViewModel =
                 ViewModelProviders.of(this).get(CreditViewModel.class);
         View root = inflater.inflate(R.layout.fragment_credit, container, false);
-        final TextView textView = root.findViewById(R.id.text_share);
-        creditViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+
         return root;
     }
 }

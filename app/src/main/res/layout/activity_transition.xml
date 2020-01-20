@@ -4,60 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A1DDD4"
+    android:background="#D9FAF6"
     tools:context=".Transition">
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="0dp"
+        android:layout_height="240dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="62dp"
         android:layout_height="29dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="250dp"
         android:text="Quiz "
-        android:textColor="#312D2D"
+        android:textColor="#050505"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/transitionARButton"
-        android:layout_width="160dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="126dp"
-        android:layout_marginEnd="125dp"
-        android:layout_marginBottom="556dp"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="140dp"
         android:background="#76DDC8"
         android:text="Go to AR"
         android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.611"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/transitionShowModelButton"
-        android:layout_width="160dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="126dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="125dp"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="80dp"
         android:background="#76DDC8"
         android:text="Show Models"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transitionARButton" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TableLayout
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -71,6 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="\u25CF "
+                android:textColor="#44AFA4"
                 android:textSize="15sp" />
 
             <TextView
@@ -81,7 +85,7 @@
                 android:clickable="true"
                 android:shadowColor="#00993333"
                 android:text="Human physiology: Locomotion and \nMovement (চলন ও অঙ্গচালনা)"
-                android:textColor="#312D2D"
+                android:textColor="#0C0B0B"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -93,8 +97,9 @@
                 android:id="@+id/textView16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="\u25CF "
+                android:textColor="#44AFA4"
                 android:textSize="15sp" />
 
             <TextView
@@ -102,11 +107,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:clickable="true"
                 android:shadowColor="#00993333"
                 android:text="Human physiology:Coordination and \nControl (সমন্বয় ও নিয়ন্ত্রণ)"
-                android:textColor="#312D2D"
+                android:textColor="#0C0B0B"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -118,8 +123,9 @@
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="\u25CF "
+                android:textColor="#44AFA4"
                 android:textSize="15sp" />
 
             <TextView
@@ -127,11 +133,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:shadowColor="#00993333"
                 android:text="Continuation of Human Life \n(মানব জীবনের ধারাবাহিকতা)
 "
-                android:textColor="#312D2D"
+                android:textColor="#0C0B0B"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -144,8 +150,9 @@
                 android:id="@+id/textView21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="\u25CF "
+                android:textColor="#44AFA4"
                 android:textSize="15sp" />
 
             <TextView
@@ -153,10 +160,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:shadowColor="#00993333"
                 android:text="Protection of Human Body(Immunity)\n(মানবদেহের প্রতিরক্ষা - ইমিউনিটি)"
-                android:textColor="#312D2D"
+                android:textColor="#0C0B0B"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -168,8 +175,9 @@
                 android:id="@+id/textView221"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="\u25CF "
+                android:textColor="#44AFA4"
                 android:textSize="15sp" />
 
             <TextView
@@ -177,11 +185,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:clickable="true"
                 android:shadowColor="#00993333"
                 android:text="Animal Diversity and Classification\n(প্রাণীর বিভিন্নতা ও শ্রেণিবিন্যাস)"
-                android:textColor="#312D2D"
+                android:textColor="#0C0B0B"
                 android:textSize="18sp" />
         </TableRow>
     </TableLayout>

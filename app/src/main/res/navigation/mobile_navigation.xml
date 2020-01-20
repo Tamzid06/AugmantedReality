@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_perfomance" />
 
     <fragment
-        android:id="@+id/nav_credits"
+        android:id="@+id/nav_about"
         android:name="com.example.augmantedreality.ui.credit.CreditFragment"
         android:label="@string/menu_credit"
         tools:layout="@layout/fragment_credit" />

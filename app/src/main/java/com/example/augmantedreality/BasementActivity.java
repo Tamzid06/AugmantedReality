@@ -12,7 +12,6 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -59,6 +58,7 @@ public class BasementActivity extends AppCompatActivity {
     public static BarData theData;
     ImageView avatar;
     TextView nav_username;
+    int totalScore;
     TextView nav_email;
     FirebaseUser user;
     User userData;
@@ -110,6 +110,7 @@ public class BasementActivity extends AppCompatActivity {
                     public void run() {
                         nav_username.setText(userData.getUsername());
                         nav_email.setText(userData.getEmail());
+
                     }
                 });
 
@@ -123,7 +124,7 @@ public class BasementActivity extends AppCompatActivity {
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_profile,
-                R.id.nav_perfomance, R.id.nav_credits, R.id.nav_logOut)
+                R.id.nav_perfomance, R.id.nav_about, R.id.nav_logOut)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -135,8 +136,6 @@ public class BasementActivity extends AppCompatActivity {
 
     private void graph() {
         myRef = mFirebaseDatabase.getReference().child("Store").child(userID);
-
-
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -154,13 +153,15 @@ public class BasementActivity extends AppCompatActivity {
                 barEntries.add(new BarEntry(account.getChap5(), 4));
 
                 theDates = new ArrayList<>();
-                theDates.add("April");
-                theDates.add("May");
-                theDates.add("June");
-                theDates.add("July");
-                theDates.add("August");
-
+                theDates.add("Chapter 1");
+                theDates.add("Chapter 2");
+                theDates.add("Chapter 3");
+                theDates.add("Chapter 4");
+                theDates.add("Chapter 5");
+                totalScore = tmpUser.getTotalMarks();
                 barDataSet = new BarDataSet(barEntries, "Chapters");
+
+                PerfomanceFragment.totalMark = totalScore;
                 PerfomanceFragment.theData = new BarData(theDates, barDataSet);
             }
 

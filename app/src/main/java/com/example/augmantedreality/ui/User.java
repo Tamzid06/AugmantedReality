@@ -30,13 +30,17 @@ public class User {
         this.id = id;
 
     }
-
+    private void evaluate()
+    {
+        totalMarks = chap1+chap2+chap3+chap4+chap5+chap6;
+    }
     public int getChap1() {
         return chap1;
     }
 
     public void setChap1(int chap1) {
         this.chap1 = chap1;
+        evaluate();
     }
 
     public int getChap2() {
@@ -44,7 +48,7 @@ public class User {
     }
 
     public void setChap2(int chap2) {
-        this.chap2 = chap2;
+        this.chap2 = chap2;evaluate();
     }
 
     public int getChap3() {
@@ -52,7 +56,7 @@ public class User {
     }
 
     public void setChap3(int chap3) {
-        this.chap3 = chap3;
+        this.chap3 = chap3;evaluate();
     }
 
     public int getChap4() {
@@ -60,7 +64,7 @@ public class User {
     }
 
     public void setChap4(int chap4) {
-        this.chap4 = chap4;
+        this.chap4 = chap4;evaluate();
     }
 
     public int getChap5() {
@@ -69,6 +73,7 @@ public class User {
 
     public void setChap5(int chap5) {
         this.chap5 = chap5;
+        evaluate();
     }
 
     public int getChap6() {

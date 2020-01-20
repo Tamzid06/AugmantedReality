@@ -1,10 +1,13 @@
 package com.example.augmantedreality.ui.performance;
 
+import android.graphics.Color;
+import android.graphics.drawable.shapes.Shape;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -44,20 +47,32 @@ public class PerfomanceFragment extends Fragment {
     public static ArrayList<String> theDates;
     public static BarData theData;
     public View root;
-
+    public static int totalMark;
+    public TextView totalMarkText;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         perfomanceViewModel =
                 ViewModelProviders.of(this).get(PerfomanceViewModel.class);
         root = inflater.inflate(R.layout.fragment_perfomance, container, false);
         barChart = root.findViewById(R.id.perfomanceBarChart);
+        totalMarkText = root.findViewById(R.id.perfomanceTotalScore);
+        totalMarkText.setText(totalMark +   "/25");
 
         barChart.setData(theData);
         barChart.setTouchEnabled(true);
         barChart.setDragEnabled(true);
         barChart.setScaleEnabled(true);
-        barChart.animateY(5000);
-
+        barChart.animateY(2000);
+//        root.findViewById(R.id.viewKonfetti).build()
+//                .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)
+//                .setDirection(0.0, 359.0)
+//                .setSpeed(1f, 5f)
+//                .setFadeOutEnabled(true)
+//                .setTimeToLive(2000L)
+//                .addShapes(Shape.RECT, Shape.CIRCLE)
+//                .addSizes(Size(12))
+//                .setPosition(-50f, viewKonfetti.width + 50f, -50f, -50f)
+//                .stream(300, 5000L)
         return root;
     }
 
