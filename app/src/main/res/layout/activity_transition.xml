@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/homebg3"
+    android:background="#A1DDD4"
     tools:context=".Transition">
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="300dp"
         android:text="Quiz "
-        android:textColor="#FFFFFF"
+        android:textColor="#312D2D"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +26,7 @@
         android:layout_marginStart="126dp"
         android:layout_marginEnd="125dp"
         android:layout_marginBottom="556dp"
-        android:background="#4CB49E"
+        android:background="#76DDC8"
         android:text="Go to AR"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -42,7 +42,7 @@
         android:layout_marginStart="126dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="125dp"
-        android:background="#4CB49E"
+        android:background="#76DDC8"
         android:text="Show Models"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -81,7 +81,7 @@
                 android:clickable="true"
                 android:shadowColor="#00993333"
                 android:text="Human physiology: Locomotion and \nMovement (চলন ও অঙ্গচালনা)"
-                android:textColor="#FFFFFF"
+                android:textColor="#312D2D"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -106,7 +106,7 @@
                 android:clickable="true"
                 android:shadowColor="#00993333"
                 android:text="Human physiology:Coordination and \nControl (সমন্বয় ও নিয়ন্ত্রণ)"
-                android:textColor="#FFFFFF"
+                android:textColor="#312D2D"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -131,7 +131,7 @@
                 android:shadowColor="#00993333"
                 android:text="Continuation of Human Life \n(মানব জীবনের ধারাবাহিকতা)
 "
-                android:textColor="#FFFFFF"
+                android:textColor="#312D2D"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -156,7 +156,7 @@
                 android:layout_marginTop="10dp"
                 android:shadowColor="#00993333"
                 android:text="Protection of Human Body(Immunity)\n(মানবদেহের প্রতিরক্ষা - ইমিউনিটি)"
-                android:textColor="#FFFFFF"
+                android:textColor="#312D2D"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -181,7 +181,7 @@
                 android:clickable="true"
                 android:shadowColor="#00993333"
                 android:text="Animal Diversity and Classification\n(প্রাণীর বিভিন্নতা ও শ্রেণিবিন্যাস)"
-                android:textColor="#FFFFFF"
+                android:textColor="#312D2D"
                 android:textSize="18sp" />
         </TableRow>
     </TableLayout>

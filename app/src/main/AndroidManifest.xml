@@ -3,8 +3,10 @@
     package="com.example.augmantedreality">
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="andriod.hardware.camera.ar" android:required="true" />
 
+    <uses-feature
+        android:name="andriod.hardware.camera.ar"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -13,12 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
+        <activity android:name=".EditProfileActivity"></activity>
 
-        <meta-data android:name="com.google.ar.core" android:value="required" />
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="required" />
 
-        <activity android:name=".ShowModelActivity"></activity>
-        <activity android:name=".Quiz1"></activity>
-
+        <activity android:name=".ShowModelActivity" />
+        <activity android:name=".Quiz1Activity" />
         <activity android:name=".Transition" />
         <activity
             android:name=".BasementActivity"

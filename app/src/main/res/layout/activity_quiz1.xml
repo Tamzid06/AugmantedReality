@@ -5,37 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".Quiz1">
+    tools:context=".Quiz1Activity">
 
-    <TextView
-        android:id="@+id/question_name"
-        android:layout_width="wrap_content"
+<!--    <View-->
+<!--        android:id="@+id/view9"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="2dp"-->
+<!--        android:background="#C81D1A1A"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/button" />-->
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="25dp"
-        android:text="Human physiology: Locomotion and \n                        Movement \n                (চলন ও অঙ্গচালনা)"
-        android:textColor="#000000"
-        android:textSize="23dp"
-        android:textStyle="bold"
+        android:background="#B2ABECEE"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Human physiology: Locomotion \n                and Movement \n            (চলন ও অঙ্গচালনা)"
+            android:textColor="#000000"
+            android:textSize="23dp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#C81D1A1A" />
+    </LinearLayout>
 
     <ScrollView
         android:id="@+id/questions"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:scrollY="@dimen/activity_vertical_margin"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        app:layout_constraintBottom_toTopOf="@+id/quiz1Submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
-        android:scrollY="@dimen/activity_vertical_margin"
-        app:layout_constraintTop_toBottomOf="@+id/question_name">
+        app:layout_constraintTop_toBottomOf="@+id/layout">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -299,5 +317,16 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/quiz1Submit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#59B3BE"
+        android:text="Submit"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
