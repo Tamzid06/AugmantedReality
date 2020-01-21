@@ -74,7 +74,7 @@ public class Transition extends AppCompatActivity {
         Uri uri = Uri.parse("android.resource://" // First start with this,
                 + getPackageName() // then retrieve your package name,
                 + "/" // add a slash,
-                + R.raw.water);
+                + R.raw.try2);
         videoBG.setVideoURI(uri);
         // Start the VideoView
         videoBG.start();
