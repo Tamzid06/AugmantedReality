@@ -35,6 +35,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -62,6 +63,8 @@ public class BasementActivity extends AppCompatActivity {
     TextView nav_email;
     FirebaseUser user;
     User userData;
+    Button ratebtn;
+
 
 
 

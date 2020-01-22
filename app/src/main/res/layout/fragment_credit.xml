@@ -106,12 +106,19 @@
             android:id="@+id/textView22"
             android:layout_width="match_parent"
             android:layout_height="43dp"
-            android:text=" © sustcseTeam6 2019"
+            android:text=" © sustcseTeam06 2019"
             android:textColor="#A4FFFFFF"
             android:textSize="20sp" />
 
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="5dp" />
+
         <Button
-            android:id="@+id/button"
+            android:id="@+id/ratebutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#76A09C"
@@ -122,7 +129,7 @@
         <TextView
             android:id="@+id/textView25"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="4dp"
             android:textColor="#A4FFFFFF"
             android:textSize="20sp" />
 
@@ -130,14 +137,14 @@
             android:id="@+id/textView26"
             android:layout_width="match_parent"
             android:layout_height="111dp"
-            android:text="#MythicalApp This app is fully developed by Tamzid Hossain,Md Fahimul Islam and Kiriti Mukharjee ©sustcseTeam6 2019"
+            android:text="#MythicalApp This app is fully developed by Tamzid Hossain,Md Fahimul Islam and Kiriti Mukharjee ©sustcseTeam06 2019"
             android:textColor="#C9FAF6F6"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textView30"
             android:layout_width="match_parent"
-            android:layout_height="41dp"
+            android:layout_height="wrap_content"
             android:text="Overall Supervision:"
             android:textColor="#EEFAF6F6"
             android:textSize="22sp" />
@@ -145,18 +152,18 @@
         <TextView
             android:id="@+id/textView31"
             android:layout_width="match_parent"
-            android:layout_height="62dp"
+            android:layout_height="58dp"
             android:text="Dr. Md Forhad Rabbi \nAssociate Professor,CSE,SUST"
             android:textColor="#EEFAF6F6"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textView33"
             android:layout_width="match_parent"
-            android:layout_height="76dp"
-            android:text="Md Mahadi Hasan Nahid \n Assistant Professor,CSE,SUST"
+            android:layout_height="66dp"
+            android:text="Md Mahadi Hasan Nahid \nAssistant Professor,CSE,SUST"
             android:textColor="#EEFAF6F6"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textView27"
@@ -171,14 +178,6 @@
             android:layout_width="225dp"
             android:layout_height="1dp"
             android:background="#E9E0E0" />
-
-        <TextView
-            android:id="@+id/textView29"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Follow Us on:"
-            android:textColor="#B7FFFCFC"
-            android:textSize="23sp" />
 
     </LinearLayout>
 

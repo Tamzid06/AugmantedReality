@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -13,9 +14,11 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.augmantedreality.R;
+import com.google.android.material.snackbar.Snackbar;
 
 public class CreditFragment extends Fragment {
 
+    Button rateUs;
     private CreditViewModel creditViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -23,7 +26,15 @@ public class CreditFragment extends Fragment {
         creditViewModel =
                 ViewModelProviders.of(this).get(CreditViewModel.class);
         View root = inflater.inflate(R.layout.fragment_credit, container, false);
+        rateUs = root.findViewById(R.id.ratebutton);
 
+        rateUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Thanks for your feedback!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
         return root;
     }

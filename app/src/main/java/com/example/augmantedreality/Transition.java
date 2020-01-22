@@ -40,7 +40,7 @@ public class Transition extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Transition.this, Quiz1Activity.class));
-                finish();
+                //finish();
             }
         });
 

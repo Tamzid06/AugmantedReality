@@ -83,7 +83,7 @@ public class Quiz1Activity extends AppCompatActivity {
                         }
                     }
                 });
-                startActivity(new Intent(Quiz1Activity.this, Transition.class));
+                //startActivity(new Intent(Quiz1Activity.this, Transition.class));
                 finish();
             }
         });
