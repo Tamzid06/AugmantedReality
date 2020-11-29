@@ -1,2 +1,2 @@
 # AugmantedReality
-AR project from kiri's pc
+AR project for CSE250
